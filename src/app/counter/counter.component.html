@@ -3,8 +3,8 @@
 <h3>+ {{points}} MMR</h3>
 <div class="forms">
   <label for="start">Начальный рейтинг</label>
-  <input name="start" (input)="this.count()" [(ngModel)]="counter.start" type="number" min="0" placeholder="от"/>
-  <input name="finish" [(ngModel)]="counter.range" type="range" min="{{counter.start}}" max="5500" step="25" (input)="count()"/>
+  <input name="start" (input)="count(counter.range, counter.start)" [(ngModel)]="counter.start" type="number" min="0" placeholder="от"/>
+  <input name="finish" [(ngModel)]="counter.range" type="range" min="{{counter.start + 100}}" max="5500" step="25" (input)="count(counter.range, counter.start)"/>
   <label id="finish" for="finish">{{counter.range}} MMR</label>
 </div>
 <h1>{{result}} рублей</h1>
