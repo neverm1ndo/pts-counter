@@ -1,10 +1,39 @@
-
-
-<h3>+ {{points}} MMR</h3>
-<div class="forms">
-  <label for="start">Начальный рейтинг</label>
-  <input name="start" (input)="count(counter.range, counter.start)" [(ngModel)]="counter.start" type="number" min="0" placeholder="от"/>
-  <input name="finish" [(ngModel)]="counter.range" type="range" min="{{counter.start + 100}}" max="5500" step="25" (input)="count(counter.range, counter.start)"/>
-  <label id="finish" for="finish">{{counter.range}} MMR</label>
+<div class="w-100 plate">
+  <!-- <h3>+ {{points}} MMR</h3> -->
+  <div class="col-12 col-md-11">
+    <div class="forms row">
+      <div class="col-md-3 col-12 pr-0 pl-0">
+        <label for="start">Текущий рейтинг</label><br>
+        <input name="start" (input)="$start.next(counter.start)" [(ngModel)]="counter.start" type="number" max="5900" min="0" placeholder="от"/>
+      </div>
+      <div class="col-md-9 col-12 pr-0 pl-0 mt-3 mt-md-0">
+        <label id="finish" for="finish">Желаемый рейтинг</label>
+        <label class="tail" [ngStyle]="{'width': percentage + '%'}" for="finish"></label>
+        <label class="tail tail_bg" for="finish"></label>
+        <input name="finish" class="inp_num" [(ngModel)]="counter.range" type="range" min="{{($start | async) + ranger}}" max="6000" step="25" (input)="$range.next(counter.range)"/>
+        <label id="desire" for="finish">{{counter.range}}</label>
+        <!-- <label id="desire" for="finish">{{}}</label> -->
+      </div>
+    </div>
+    <div class="row options">
+      <div class="col-md-2 col-12 offset-md-1 pl-0 pr-0 text-md-left text-center">
+        <!-- <h3 class="mb-3">{{days + days*(points*0.001) - (days + days*(points*0.001)*0.25*(+($faster| async))) | number:'1.0-0'}} - {{days + days*(points*0.001) - (days + days*(points*0.001)*0.25*(+($faster| async))) + 3 | number:'1.0-0'}} дней</h3> -->
+      </div>
+      <div class="col-md-3 col-6 pl-0">
+        <button class="w-100" [ngClass]="{'checked': $party | async}" (click)="$party.next(!$party.getValue())">PARTY MMR</button>
+      </div>
+      <div class="col-md-3 col-6 pl-0 pr-0">
+        <button class="w-100" [ngClass]="{'checked': $faster | async}" (click)="$faster.next(!$faster.getValue())">BOOST ME FASTER</button>
+      </div>
+      <div class="col-md-3 col-12 p-0">
+        <ng-template #noopts>
+          <h1 class="text-md-right text-center mt-3">{{($result | async) | number:'1.0-0'}}<fa class="ml-2" name="ruble"></fa></h1>
+        </ng-template>
+        <h1 class="text-md-right text-center mt-3 " *ngIf="($faster | async) || ($party | async); else noopts">{{($result | async) + ($result| async)*(0.2*(+($faster| async))) + ($result | async)*(0.05*(+($party| async))) | number:'1.0-0'}}<fa class="ml-2" name="ruble"></fa></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 p-0 text-center creds d-none d-sm-block">
+    <span>necessaryboost.pro <small>beta</small>, <a href="https://vk.com/necessaryevil_boost" class="ml-3">necessaryevil</a>, 2019</span>
+  </div>
 </div>
-<h1>{{result}} рублей</h1>

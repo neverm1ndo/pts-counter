@@ -1,0 +1,33 @@
+@import (less) "../colors.less";
+  h3 , .brown {
+    color: @brown;
+    font-weight: 600;
+  }
+  .info {
+    h3 {
+      font-size: 40px;
+    }
+  }
+  app-counter {
+    width: 100%;
+    text-align: center;
+  }
+.about {
+  max-width: 200px;
+}
+span {
+  font-size: 14px;
+}
+.brown {
+  font-size: 16px;
+}
+@media screen and (max-width: 600px) {
+  .info {
+    span, a, i {
+      font-size: 13px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+  }
+}
