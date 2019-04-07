@@ -2,7 +2,7 @@
 
 Сalculates the prices for DOTA 2 MMR boosting services. Uses piecewise linear approximation function to get final result.
 
-[Live example here](https://nmnd.ru/pts-counter).
+[Live example here](https://necessaryboost.pro/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
 
