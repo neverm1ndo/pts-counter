@@ -44,7 +44,7 @@ export class CounterComponent implements OnInit {
   }
 
   approx(X:Array<number>, Y:Array<number>, x:number): number {
-    let max : number = X[19];
+    let max : number = X[X.length - 1];
     let indexMax : number= 0;
     for (let i = 0; i<X.length; i++)
       {
