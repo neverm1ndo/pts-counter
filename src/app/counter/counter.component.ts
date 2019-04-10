@@ -18,19 +18,19 @@ export class CounterComponent implements OnInit {
 
   counter : counter = {
     start : 0,
-    range: 100
+    range: 200
   };
   $faster: BehaviorSubject<boolean> = new BehaviorSubject(false);
   $party: BehaviorSubject<boolean> = new BehaviorSubject(false);
   $result: BehaviorSubject<number> = new BehaviorSubject(0);
-  $points: BehaviorSubject<number> = new BehaviorSubject(100);
+  $points: BehaviorSubject<number> = new BehaviorSubject(150);
   $start: BehaviorSubject<number> = new BehaviorSubject(0);
-  $range: BehaviorSubject<number> = new BehaviorSubject(100);
+  $range: BehaviorSubject<number> = new BehaviorSubject(150);
 
   percentage: number;
   ranger: number;
   result : number = 0;
-  points : number = 100;
+  points : number = 200;
   days: number = 5;
 
   dotsX: Array<number> = [0, 100, 1500, 2500, 3500, 4000, 4500, 4800, 4900, 5000, 5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900, 6000];
