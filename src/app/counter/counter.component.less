@@ -113,6 +113,13 @@ input[type="range"] {
   background: @brown - #202020;
   cursor: pointer;
   // border: 1px solid #202020;
+  transition: 0.1s linear;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:focus, &:target {
+    background: @brown - #101010
+  }
 }
 
 input[type=range] {

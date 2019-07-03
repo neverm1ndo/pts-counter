@@ -21,6 +21,23 @@ html {
     height: 100%;
     min-height: 500px;
     overflow: auto;
+    .link {
+      a {
+        &:hover {
+          color: #fff;
+        }
+      }
+      fa {
+        i {
+          transition: 0.1s linear;
+          cursor: pointer;
+          &:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+          }
+        }
+      }
+    }
     .logo {
       width: 64px;
       height: 65px;
