@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
 
 declare var gtag: any;
@@ -11,7 +12,17 @@ declare var gtag: any;
 })
 export class AppComponent {
   title = 'pts-counter';
-  constructor(router: Router ) {
+  constructor(
+    router: Router,
+    private meta: Meta
+   ) {
+
+     this.meta.addTag({ name: 'robots', content: 'index' });
+     this.meta.addTag({ name: 'description', content: 'Профессиональный буст рейтинга DOTA 2, прокачка аккаунтов, прохождение BattlePass и многое другое. А также ламповые стримы!' });
+     this.meta.addTag({ name: 'keywords', content: 'DOTA, boost, rating, mmr, рейтинг, буст' });
+     this.meta.addTag({ name: 'content-type', content: 'text/html;charset=utf-8' });
+     this.meta.addTag({ name: 'copyright', content: 'neverm1nd & teenie. & necessaryevil' });
+
     const navEnds = router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     );
